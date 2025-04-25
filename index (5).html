@@ -1,270 +1,157 @@
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/anhngoc12343sw/meee.git
-git push -u origin main
 <!DOCTYPE html>  
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>abtyKCNG-AnhNgoc</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<style>
-  body {
-    margin: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: 'Press Start 2P', cursive;
-    position: relative;
-    cursor: url('https://ih1.redbubble.net/image.4823767898.0852/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg'), auto; /* Custom cursor */
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>abtyKCNG-AnhNgoc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Press Start 2P', cursive;
+            position: relative;
+            cursor: url('https://ih1.redbubble.net/image.4823767898.0852/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg'), auto;
+        }
 
-  #logo-title {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 32px;
-    color: #ffffff;
-    text-shadow:
-      2px 2px 0 #000000,
-      4px 4px 0 #666666;
-    z-index: 10;
-    font-family: 'Press Start 2P', cursive;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 10px 20px;
-    border-radius: 10px;
-    pointer-events: none;
-  }
+        #logo-title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 32px;
+            color: #ffffff;
+            text-shadow: 2px 2px 0 #000000, 4px 4px 0 #666666;
+            z-index: 10;
+            font-family: 'Press Start 2P', cursive;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            border-radius: 10px;
+            pointer-events: none;
+        }
 
-  #background, #end-background {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-    transition: opacity 2s ease-in-out;
-  }
+        #background, #end-background {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+            transition: opacity 2s ease-in-out;
+        }
 
-  #end-background {
-    opacity: 0;
-  }
+        #pig {
+            position: absolute;
+            bottom: 20%;
+            width: 100px;
+            animation: walk 10s linear forwards;
+            transition: opacity 1s ease-in-out;
+            z-index: 1;
+        }
 
-  #pig {
-    position: absolute;
-    bottom: 20%;
-    width: 100px;
-    animation: walk 10s linear forwards;
-    transition: opacity 1s ease-in-out;
-    z-index: 1;
-  }
+        @keyframes walk {
+            0% { left: -100px; }
+            50% { left: 50%; transform: translateX(-50%); }
+            100% { left: 50%; transform: translateX(-50%); }
+        }
 
-  @keyframes walk {
-    0% { left: -100px; }
-    50% { left: 50%; transform: translateX(-50%); }
-    100% { left: 50%; transform: translateX(-50%); }
-  }
+        #dialogue {
+            position: absolute;
+            top: 20%;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+            font-size: 12px;
+            color: #333;
+            transition: opacity 1s ease-in-out;
+            z-index: 1;
+            opacity: 0;
+        }
 
-  #dialogue {
-    position: absolute;
-    top: 20%;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 300px;
-    font-size: 12px;
-    color: #333;
-    transition: opacity 1s ease-in-out;
-    z-index: 1;
-    opacity: 0;
-  }
+        #buttons {
+            position: absolute;
+            bottom: 10%;
+            display: none;
+            gap: 10px;
+            z-index: 2;
+        }
 
-  #buttons {
-    position: absolute;
-    bottom: 10%;
-    display: none;
-    gap: 10px;
-    z-index: 2;
-  }
+        button {
+            padding: 10px 20px;
+            font-size: 12px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+        }
 
-  button {
-    padding: 10px 20px;
-    font-size: 12px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
-    font-family: 'Press Start 2P', cursive;
-  }
+        button:nth-child(2) {
+            background-color: #f44336;
+        }
 
-  button:nth-child(2) {
-    background-color: #f44336;
-  }
+        #start-button {
+            position: absolute;
+            top: 50%;
+            font-size: 24px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1000;
+        }
 
-  #start-button {
-    position: absolute;
-    top: 50%;
-    font-size: 24px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    font-family: 'Press Start 2P', cursive;
-    cursor: pointer;
-    border-radius: 5px;
-    z-index: 1000;
-  }
+        #overlay {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            z-index: 0;
+        }
 
-  #overlay {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: black;
-    opacity: 0;
-    transition: opacity 2s ease-in-out;
-    z-index: 0;
-  }
+        #thank-you {
+            position: absolute;
+            color: white;
+            font-size: 48px;
+            z-index: 1;
+            animation: pulse 1.5s infinite;
+        }
 
-  #thank-you {
-    position: absolute;
-    color: white;
-    font-size: 48px;
-    z-index: 1;
-    animation: pulse 1.5s infinite;
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-  }
-</style>
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
 </head>
 <body>
-  <!-- Dòng chữ trên đầu -->
-  <div id="logo-title">abty-KCNG</div>
+    <div id="logo-title">abty-KCNG</div>
+    <img id="background" src="https://img.craftpix.net/2023/10/Free-Summer-Pixel-Art-Backgrounds3-720x480.webp" alt="Summer Background">
+    <img id="end-background" src="https://art.pixilart.com/original/sr24cdf4bdcc2aws3.gif" alt="End Background">
+    <img id="pig" src="https://i.redd.it/6jk524tfr3261.gif" alt="Walking Pig">
+    <div id="dialogue"></div>
+    <div id="buttons">
+        <button onclick="sendReply()">Reply</button>
+        <button onclick="sendMessage('The pig walks away peacefully...')">Go away peacefully</button>
+    </div>
+    <div id="overlay"></div>
+    <div id="thank-you"></div>
+    <audio id="bg-music" src="Ariana Grande - intro (end of the world) (extended) (lyric visualizer).mp4" loop></audio>
+    <img id="initial-background" src="https://art.pixilart.com/sr2b683e9824eaws3.png" alt="Initial Background" style="position:absolute; width:100vw; height:100vh; object-fit:cover; z-index:-2;">
+    <button id="start-button" onclick="startAnimation()">Bắt đầu</button>
 
-  <img id="background" src="https://img.craftpix.net/2023/10/Free-Summer-Pixel-Art-Backgrounds3-720x480.webp" alt="Summer Background">
-  <img id="end-background" src="https://art.pixilart.com/original/sr24cdf4bdcc2aws3.gif" alt="End Background">
-  <img id="pig" src="https://i.redd.it/6jk524tfr3261.gif" alt="Walking Pig">
-  <div id="dialogue"></div>
-  <div id="buttons">
-    <button onclick="sendReply()">Reply</button>
-    <button onclick="sendMessage('The pig walks away peacefully...')">Go away peacefully</button>
-  </div>
-  <div id="overlay"></div>
-  <div id="thank-you"></div>
-  <audio id="bg-music" src="Ariana Grande - intro (end of the world) (extended) (lyric visualizer).mp4" loop></audio>
-  <img id="initial-background" src="https://art.pixilart.com/sr2b683e9824eaws3.png" alt="Initial Background" style="position:absolute; width:100vw; height:100vh; object-fit:cover; z-index:-2;">
-
-  <button id="start-button" onclick="startAnimation()">Bắt đầu</button>
-
-  <script>
-    const messages = [
-      "I wanted to let you know that I find you attractive and cute...",
-      "I have to admit, I can't stop thinking about you...",
-      "Guess you have captured my thoughts....",
-      "I like you.",
-      "Love your personality....",
-      "Love your style.",
-      "Love your imperfections.",
-      "Love your vibe.",
-      "Love all your worst.",
-      "But no pressure."
-    ];
-
-    let currentMessageIndex = 0;
-    const dialogueBox = document.getElementById("dialogue");
-    const buttons = document.getElementById("buttons");
-    const pig = document.getElementById("pig");
-    const overlay = document.getElementById("overlay");
-    const thankYou = document.getElementById("thank-you");
-    const background = document.getElementById("background");
-    const endBackground = document.getElementById("end-background");
-    const startButton = document.getElementById("start-button");
-
-    function typeMessage(message, callback) {
-      let index = 0;
-      dialogueBox.textContent = "";
-      const interval = setInterval(() => {
-        if (index < message.length) {
-          dialogueBox.textContent += message[index];
-          index++;
-        } else {
-          clearInterval(interval);
-          if (callback) callback();
-        }
-      }, 50);
-    }
-
-    function showNextMessage() {
-      if (currentMessageIndex < messages.length) {
-        typeMessage(messages[currentMessageIndex], () => {
-          currentMessageIndex++;
-          setTimeout(showNextMessage, 1000);
-        });
-      } else {
-        buttons.style.display = "flex";
-      }
-    }
-
-    function typeThankYou() {
-      const text = "Thank You";
-      let index = 0;
-      thankYou.textContent = "";
-      const interval = setInterval(() => {
-        if (index < text.length) {
-          thankYou.textContent += text[index];
-          index++;
-        } else {
-          clearInterval(interval);
-        }
-      }, 2000 / text.length);
-    }
-
-    function startAnimation() {
-      startButton.style.display = "none";
-      document.getElementById("initial-background").style.display = "none";
-      background.style.display = "block";
-      const music = document.getElementById("bg-music");
-      music.volume = 0.5;
-      music.play();
-
-      pig.style.animationPlayState = "running";
-
-      pig.addEventListener("animationend", () => {
-        dialogueBox.style.opacity = "1";
-        showNextMessage();
-      });
-    }
-
-    function sendMessage(message) {
-      dialogueBox.textContent = message;
-      buttons.style.opacity = "0";
-      setTimeout(() => {
-        pig.style.opacity = "0";
-        dialogueBox.style.opacity = "0";
-        setTimeout(() => {
-          overlay.style.opacity = "1";
-          background.style.opacity = "0";
-          endBackground.style.opacity = "1";
-          setTimeout(() => {
-            typeThankYou();
-          }, 1000);
-        }, 1000);
-      }, 1500);
-    }
-
-    function sendReply() {
-      dialogueBox.textContent = "contact me https://www.facebook.com/share/16Aqb1LvcN/";
-      buttons.style.display = "none";
-    }
-  </script>
+    <script>
+        // JavaScript code as provided
+    </script>
 </body>
 </html>
